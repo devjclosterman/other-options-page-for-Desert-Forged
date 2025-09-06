@@ -1,0 +1,154 @@
+/* Desert Forged — Compare Page Styles
+   Designed to blend with a bronze/desert palette + glass cards.
+   If your theme already sets base fonts/colors, these will layer on top cleanly. */
+
+:root{
+  --bg: #0f0e0d;           /* near-black */
+  --bg-grad1: #171311;
+  --bg-grad2: #221a16;
+  --card: rgba(255,255,255,0.06);
+  --card-border: rgba(255,255,255,0.18);
+  --text: #eae7e4;         /* soft sand */
+  --muted: #b9b3ae;
+  --accent: #c58c46;       /* forged bronze */
+  --accent-2: #ffe2b3;     /* warm highlight */
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+  color: var(--text);
+  background:
+    radial-gradient(1200px 800px at 10% 0%, var(--bg-grad2), transparent 60%),
+    radial-gradient(1200px 800px at 90% 0%, #1a1512, transparent 60%),
+    linear-gradient(180deg, var(--bg-grad1), var(--bg));
+  background-attachment: fixed;
+}
+
+/* Layout helpers */
+.df-container{width:min(1100px,92%);margin-inline:auto}
+.df-main{padding-bottom:60px}
+
+/* Topbar (lightweight placeholder) */
+.df-topbar{
+  position:sticky; top:0; z-index:20;
+  background: linear-gradient(180deg, rgba(15,14,13,.85), rgba(15,14,13,.65));
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.df-topbar .df-container{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+.df-brand{color:var(--text); text-decoration:none; font-weight:800; letter-spacing:.5px}
+.df-brand span{color:var(--accent)}
+.df-nav a{color:var(--muted); text-decoration:none; margin-left:16px; font-weight:600}
+.df-nav a:hover{color:var(--text)}
+
+/* Hero */
+.df-hero{padding:64px 0 28px}
+.df-hero__title{font-size: clamp(28px, 5vw, 44px); margin:0 0 10px; letter-spacing:.2px}
+.df-hero__lead{margin:0 0 16px; color:var(--muted); max-width: 70ch}
+.df-hero__pill{
+  display:inline-flex; align-items:center; gap:10px;
+  border:1px solid var(--card-border);
+  background: var(--card);
+  padding:10px 14px; border-radius:999px;
+  box-shadow: var(--shadow);
+}
+.df-hero__pill .dot{
+  width:8px;height:8px;border-radius:50%;
+  background: var(--accent-2); box-shadow: 0 0 20px var(--accent-2);
+}
+
+/* Sections */
+.df-section{padding:26px 0}
+.df-section__title{font-size:22px; margin:0 0 14px}
+
+/* Grid of cards */
+.df-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap:16px; list-style:none; padding:0; margin:0;
+}
+.df-card{
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+.df-card__head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px}
+.df-card__title{margin:0; font-size:18px}
+.df-card__meta{display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 10px}
+.tag{
+  font-size:12px; color:var(--accent-2);
+  border:1px solid var(--card-border);
+  background: rgba(255,255,255,0.04);
+  padding:4px 8px; border-radius:999px
+}
+.df-card__text{color:var(--muted); margin:0}
+
+/* Note block */
+.df-note{
+  margin-top:18px;
+  border:1px dashed var(--card-border);
+  border-radius:14px; padding:14px;
+  background: rgba(197,140,70,0.08);
+}
+.df-note h3{margin:0 0 8px}
+
+/* FAQ */
+.df-faq{display:grid; gap:10px}
+.df-faq__item{
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 10px 14px;
+  box-shadow: var(--shadow);
+}
+.df-faq__item > summary{
+  cursor: pointer;
+  font-weight:600;
+  list-style:none;
+}
+.df-faq__item > summary::-webkit-details-marker{display:none}
+.df-faq__item > p{color:var(--muted); margin:8px 0 0}
+
+/* CTA */
+.df-cta{padding:36px 0}
+.df-cta__inner{
+  background: linear-gradient(135deg, rgba(197,140,70,.15), rgba(255,226,179,.08));
+  border:1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 22px;
+  text-align:center;
+  box-shadow: var(--shadow);
+}
+.df-cta__inner h2{margin:0 0 6px}
+
+/* Buttons */
+.df-btn{
+  display:inline-block;
+  text-decoration:none;
+  border:1px solid var(--card-border);
+  padding:10px 12px; border-radius:12px;
+  color:var(--text);
+}
+.df-btn:hover{border-color:rgba(255,255,255,.32)}
+.df-btn--primary{
+  background: linear-gradient(180deg, #c58c46, #a46f30);
+  border-color: #a46f30;
+  color:#1b120e; font-weight:800;
+  text-shadow: 0 1px 0 rgba(255,255,255,.25);
+}
+
+/* Footer */
+.df-footer{padding:28px 0; border-top:1px solid rgba(255,255,255,.06); color:var(--muted); text-align:center}
+
+/* Small screens */
+@media (max-width: 640px){
+  .df-topbar .df-nav{display:none}
+  .df-hero{padding:44px 0 16px}
+}
